@@ -1,8 +1,4 @@
-(function (ZoneChecker.prototype) {
-	var ZoneChecker = function () {
-
-	};
-
+(function (exports) {
 	/////////////////////////////////////////
 	// HOW POINTS AND ZONES WORK
 	/////////////////////////////////////////
@@ -15,6 +11,9 @@
 	// Is a POINT in the TARGET_ZONE?
 	// Is an SOURCE_ZONE fully in the TARGET_ZONE?
 
+	var ZoneChecker = function () {
+	};
+
 	ZoneChecker.prototype.pointInTargetZone = function (point, targetZone) {
 		return ((point.y >= targetZone.yTop && point.y <= targetZone.yBottom) &&
 					 	(point.x >= targetZone.xLeft && point.x <= targetZone.xRight));
@@ -23,7 +22,7 @@
 	ZoneChecker.prototype.pointInAnyOfTargetZones = function (point, targetZones) {
 		var result = false;
 		targetZones.forEach(function (targetZone) {
-			if (pointInTargetZone(point, targetZone)) {
+			if (this.pointInTargetZone(point, targetZone)) {
 				result = true;
 			};
 		});
@@ -31,10 +30,10 @@
 	}
 
 	// e.g. triangle is entirely within rectangle
-	ZoneChecker.prototype.sourceZoneEntirelyInAnyTargetZone = function (sourceZone, targetZones) {
+	ZoneChecker.prototype.entirelyInAnyTargetZone = function (sourceZone, targetZones) {
 		var result = true;
 		sourceZone.points().forEach(function (point) {
-			if (!pointInAnyOfTargetZones(point, targetZones)) {
+			if (!this.pointInAnyOfTargetZones(point, targetZones)) {
 				result = false;
 			}
 		});
@@ -42,10 +41,12 @@
 	}
 
 	// e.g. triangle top tip is in specific rectangle
-	ZoneChecker.prototype.sourceZoneVertexInTargetZone = function (sourceZone, targetZone) {
+	ZoneChecker.prototype.vertexInTargetZone = function (sourceZone, targetZone) {
 		var result = false;
+		var that = this;
+
 		sourceZone.points().forEach(function (point) {
-			if (pointInTargetZone(point, targetZone)) {
+			if (that.pointInTargetZone(point, targetZone)) {
 				result = true;
 			}
 		});
@@ -53,11 +54,12 @@
 	}
 
 	// e.g. triangle top tip is in any of 5 rectangles
-	ZoneChecker.prototype.sourceZoneVertexInAnyTargetZones = function (sourceZone, targetZones) {
+	ZoneChecker.prototype.vertexInAnyTargetZones = function (sourceZone, targetZones) {
 		var result = false;
+		var that = this;
 		if (targetZones) {
 			targetZones.forEach(function (targetZone) {
-				if (sourceZoneVertexInTargetZone(sourceZone, targetZone)) {
+				if (that.vertexInTargetZone(sourceZone, targetZone)) {
 					result = true;
 				}
 			});
@@ -66,18 +68,72 @@
 	}
 
 	// e.g. if any of these triangle's vertices is in specific rectangle
-	ZoneChecker.prototype.anySourceZoneVertexInTargetZone = function (sourceZones, targetZone) {
+	ZoneChecker.prototype.anyVertexInTargetZone = function (sourceZones, targetZone) {
 		var result = false;
+		var that = this;
 		var relevantSourceZone;
 		if (sourceZones) {
 			sourceZones.forEach(function (sourceZone) {
-				if (sourceZoneVertexInTargetZone(sourceZone, targetZone)) {
+				if (that.vertexInTargetZone(sourceZone, targetZone)) {
 					result = true;
 					relevantSourceZone = sourceZone;
 					return false;
 				}
 			});
 			return { result: result, sourceZone: relevantSourceZone };
+		}
+	}
+
+	ZoneChecker.prototype.zonify = function (target) {
+		this._mixin(target, this.mixins.zone);
+	}
+
+	ZoneChecker.prototype._mixin = function (obj, mixin) {
+		for (var i in mixin) {
+			obj[i] = mixin[i];
+		}
+	}
+
+	ZoneChecker.prototype.mixins = {
+		zone: {
+		  shape: 'rectangle'
+		, xLeft: 0
+		, xRight: 0
+		, yBottom: 0
+		, yTop: 0
+		, xMid: 0
+		, width: 0
+		, height: 0
+		, points: function () {
+				if (this.shape === 'rectangle') {
+					return [{x: this.xLeft, y: this.yBottom},
+									{x: this.xRight, y: this.yBottom},
+									{x: this.xLeft, y: this.yTop},
+									{x: this.xRight, y: this.yTop}];
+				} else if (this.shape === 'triangle') {
+					return [{x: this.bottomLeftX(), y: this.bottomLeftY()},
+									{x: this.bottomRightX(), y: this.bottomRightY()},
+									{x: this.xMid, y: this.yTop}];
+				}
+			}
+
+		// These functions are only for triangles
+		, bottomLeftX: function () {
+				return this.xMid - (this.width / 2);
+			}
+
+		, bottomLeftY: function () {
+				return this.yTop + this.height;
+			}
+
+		, bottomRightX: function () {
+				return this.xMid + (this.width / 2);
+			}
+
+		, bottomRightY: function () {
+				return this.yTop + this.height;
+			}
+
 		}
 	}
 

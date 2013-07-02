@@ -11,7 +11,8 @@
     this.stateManager = new StateManager(game, canvas);
     this.levelManager = new LevelManager(game, canvas);
     this.inputManager = new InputManager(game, canvas);
-  
+    this.zoneChecker = new ZoneChecker(game, canvas);
+
     this.canvas = canvas;    
     this.ctx = ctx;
   }
