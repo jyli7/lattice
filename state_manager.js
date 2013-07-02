@@ -1,6 +1,5 @@
 ;(function(exports) {
-  var StateManager = function(game, canvas, initialState) {
-    this.game = game;
+  var StateManager = function(game, canvas) {
     this.states = {};
   };
 

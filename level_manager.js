@@ -1,15 +1,15 @@
 ;(function(exports) {
   var LevelManager = function(game, canvas) {
-    this.game = game;
     this.levels = {};
+    this.currentLevelNum = 1;
   };
 
-  LevelManager.prototype.currentLevelFn = function () {
+  LevelManager.prototype.currentLevelObj = function () {
     return this.levels[this.currentLevelNum];
   }
 
-  LevelManager.prototype.addLevel = function(levelNum, levelFn) {
-    this.levels[levelNum] = levelFn;
+  LevelManager.prototype.addLevel = function(levelNum, levelObj) {
+    this.levels[levelNum] = levelObj;
   }
 
   LevelManager.prototype.removeLevel = function(levelNum, stateName) {
