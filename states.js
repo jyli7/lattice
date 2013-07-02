@@ -1,7 +1,7 @@
 ;(function(exports) {
-  var States = function(game, canvasId, tickInterval) {
+  var States = function(game, canvas) {
     this.game = game;
-    this.game.states = this.game.states || {};
+    this.
   };
 
   States.prototype.addState = function(stateName, stateFn) {
