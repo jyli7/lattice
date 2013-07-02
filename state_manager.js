@@ -15,5 +15,5 @@
     delete this.states[stateName];
   }
 
-  exports.States = States;
+  exports.StateManager = StateManager;
 })(this);
