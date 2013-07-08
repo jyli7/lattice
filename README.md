@@ -13,7 +13,7 @@ Get started in just 5 easy steps.
 1. Include lattice.js or lattice.min.js with the rest of the javascript you're including in your game.
 
 	```html
-	// CODE FOR THIS GOES HERE
+	<script src="lattice.min.js"></script>
 	```
 
 2. You will need to define your own game object (e.g. game.js). To make your game object work properly with lattice, you will need to instantiate the game object and pass in the id of your canvas element, the desired width of the canvas, and the desired height of the canvas.
