@@ -64,7 +64,7 @@ Get started in just 5 easy steps.
 	});
 	```
 
-The other things you'll need to do are define your own state functions and level objects. The state function that corresponds to the currentState is the function that is executed each time the game loop ticks. The entities that are connected to the currentLevelObj are the entities that will be updated/drawn each time through the game loop. This means that you *must* attach your entities to the 'entities' array on each level object. See the sample game code [here] to see what I mean.
+The other things you'll need to do are define your own state functions and level objects. The state function that corresponds to the currentState is the function that is executed each time the game loop ticks. The entities that are connected to the currentLevelObj are the entities that will be updated/drawn each time through the game loop. This means that you *must* attach your entities to the 'entities' array on each level object. See the sample game code [here](https://github.com/jyli7/lattice/blob/master/sample_game/levels.js) to see what I mean.
 
 ### Modules
 
