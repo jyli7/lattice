@@ -1,6 +1,6 @@
 #Lattice
 
-A lightweight framework for making JavaScript games. Handles user input, game states, level management, and collision detection.
+A lightweight framework for making javascript games. Handles user input, game states, level management, and collision detection.
 
 ## How to Use Lattice
 
@@ -63,6 +63,8 @@ Get started in just 5 easy steps.
 		_lattice_.startLoop(); // <- newest line
 	});
 	```
+
+The other things you'll need to do are define your own state functions and level objects. The state function that corresponds to the currentState is the function that is executed each time the game loop ticks. The entities that are connected to the currentLevelObj are the entities that will be updated/drawn each time through the game loop. This means that you *must* attach your entities to the 'entities' array on each level object. See the sample game code [here] to see what I mean.
 
 ### Modules
 
