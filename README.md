@@ -130,3 +130,21 @@ _lattice_.stateManager.removeState('playing');
 
 #### Collision Detection (_lattice_.zoneChecker)
 
+Given the number of different methods available within the collision detection module, it's best to just point you toward [the source code](https://github.com/jyli7/lattice/blob/master/src/zone_checker.js). The zoneChecker lets you determine if a "collision" has occurred between two objects (each of which is defined by 4 points), where a collision is either the presence of a vertex within a zone, or the present of an entire zone within another zone (the exact meaning of "zone" is provided within the zone_checker.js source code).
+
+To make your game entities compatible with the zone checker, you'll need to specify the four points that define the entity on the canvas: xLeft, xRight, yBottom, and yTop.
+
+For instance:
+```javascript
+var Hero = function () {
+	_lattice_.zoneChecker.zonify(this);
+	this.width = 20;
+	this.height = 20;
+
+	this.xLeft = canvas.width / 2;
+	this.xRight = this.xLeft + this.width;
+	this.yBottom = canvas.height / 2;
+	this.yTop = this.yBottom - this.height;	
+};
+```
+
