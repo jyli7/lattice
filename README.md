@@ -27,7 +27,7 @@ Get started in just 5 easy steps.
 	var game = new Game('canvas', 600, 600);
 	```
 
-3. Simply by including lattice.js, you make globally available the <notextile>_lattice_</notextile> object. Initialize this object by passing in your game object and the canvas element id.
+3. Simply by including lattice.js, you make globally available the \_lattice\_ object. Initialize this object by passing in your game object and the canvas element id.
 
 	```javascript
 	var game = new Game('canvas', 600, 600);
@@ -52,7 +52,7 @@ Get started in just 5 easy steps.
 	game.init(); // <- newest line
 	```
 
-5. Finally, start the loop on _lattice_.
+5. Finally, start the loop on \_lattice\_.
 
 	```javascript
 	// main.js
@@ -68,7 +68,7 @@ Get started in just 5 easy steps.
 
 Lattice consists of a bunch of modules, each of which is dedicated to handling a specific aspect of your game for you.
 
-Each of these modules is automatically attached to the _lattice_ object.
+Each of these modules is automatically attached to the \_lattice\_ object.
 
 ### Lattice itself (_lattice_)
 
@@ -98,7 +98,7 @@ Lattice assumes that your game has levels. But don't worry, if you don't want yo
 
 The level manager has 1 property of interest: currentLevelNum. This is set to 1 by default.
 
-The level manager has 3 functions of interest. Here's how you use each of these. Levels numbers and level objects are stored on the global _lattice_ object.
+The level manager has 3 functions of interest. Here's how you use each of these. Levels numbers and level objects are stored on the global \_lattice\_ object.
 
 ```javascript
 // Demonstration of addLevel()
@@ -126,7 +126,7 @@ There is no default current_state, you'll need to initialize it (as mentioned ab
 _lattice_.stateManager.currentState = 'playing';
 ```
 
-The state manager has 3 functions of interest. Here's how you use each of these. State names and functions are also stored on the global _lattice_ object.
+The state manager has 3 functions of interest. Here's how you use each of these. State names and functions are also stored on the global \_lattice\_ object.
 
 ```javascript
 _lattice_.stateManager.addState('playing', playingState);
