@@ -65,10 +65,49 @@ Get started in just 5 easy steps.
 
 ### Modules
 
-#### Handling User Input (input_manager.js)
+Lattice consists of a bunch of modules, each of which is dedicated to handling a specific aspect of your game for you.
 
-#### Level Management (level_manager.js)
+Each of these modules is automatically attached to the _lattice_ object.
 
-#### Handling State (state_manager.js)
+#### Handling User Input (_lattice_.inputManager)
 
-#### Collision Detection (zone_checker.js)
+To determine if the 'enter' key is being held down, call _lattice_.InputManager.keyIsHeld() and pass in the keyCode for enter, i.e. 13.
+
+Example:
+	```javascript
+	if (_lattice_.inputManager.keyIsHeld(13)) {
+		// Do stuff
+	}
+	```
+#### Level Management (_lattice_.levelManager)
+
+Lattice assumes that your game has levels. But don't worry, if you don't want your game to have levels, that's fine - just create 1 level.
+
+The level manager has 1 property of interest: currentLevelNum. This is set to 1 by default.
+
+The level manager has 3 functions of interest:
+* addLevel()
+* removeLevel()
+* currentLevelObj()
+
+Here's how you use each of these
+
+	```javascript
+	// Demonstration of addLevel()
+		
+		// Pass as arguments (1) the level number that corresponds to the new level and an instantiation of (2) the level object (which you have created).
+		_lattice_.levelManager.addLevel(1, new FirstLevel(this));
+
+	// Demonstration of removeLevel()
+		// Note that if you remove level 2, level 3 will NOT automatically become level 2.
+		// Instead, level 2 will not have any corresponding level object.
+		_lattice_.levelManager.removeLevel(2);
+
+	// Demonstration of currentLevelObj()
+		var levelObject = _lattice_.levelManager.currentLevelObj();
+	```
+
+#### Handling State (_lattice_.stateManager)
+
+#### Collision Detection (_lattice_.zoneChecker)
+

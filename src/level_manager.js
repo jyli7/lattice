@@ -12,7 +12,7 @@
     this.levels[levelNum] = levelObj;
   }
 
-  LevelManager.prototype.removeLevel = function(levelNum, stateName) {
+  LevelManager.prototype.removeLevel = function(levelNum) {
     delete this.levels[levelNum];
   }
 
