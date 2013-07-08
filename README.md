@@ -10,7 +10,7 @@ The easiest way to figure out how to use lattice is to read/skim this readme and
 
 Get started in just 5 easy steps.
 
-1. Include lattice.js or lattice.min.js with the rest of the javascript you're including in your game.
+1. Add lattice.js or lattice.min.js to your directory tree and include it with the rest of the javascript you're including in your game.
 
 	```html
 	<script src="lattice.min.js"></script>
