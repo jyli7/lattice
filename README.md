@@ -102,12 +102,10 @@ The level manager has 3 functions of interest. Here's how you use each of these.
 
 ```javascript
 // Demonstration of addLevel()
-	
 	// Pass as arguments (1) the level number that corresponds to the new level and an instantiation of (2) the level object (which you have created).
 	_lattice_.levelManager.addLevel(1, new FirstLevel(this));
 
 // Demonstration of removeLevel()
-	
 	// Note that if you remove level 2, level 3 will NOT automatically become level 2.
 	// Instead, level 2 will not have any corresponding level object.
 	_lattice_.levelManager.removeLevel(2);
@@ -134,7 +132,6 @@ _lattice_.stateManager.removeState('playing');
 
 // Where the playing state is defined elsewhere:
 	// states.js
-
 	var playingState = function () {
 		_lattice_.update(_lattice_.loopTimeElapsed);
 		_lattice_.draw(_lattice_.ctx);
