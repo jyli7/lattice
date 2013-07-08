@@ -56,4 +56,4 @@
   exports.Lattice = Lattice;
 })(this);
 
-var lattice = new Lattice();
+var _lattice_ = new Lattice();
