@@ -20,7 +20,6 @@ Get started in just 5 easy steps.
 
 	```javascript
 	// game.js
-
 	var Game = function(canvasId, width, height) {
 	};
 
@@ -28,11 +27,11 @@ Get started in just 5 easy steps.
 	var game = new Game('canvas', 600, 600);
 	```
 
-3. Simply by including lattice.js, you make globally available the _lattice_ object. Initialize this object by passing in your game object and the canvas element id.
+3. Simply by including lattice.js, you make globally available the <notextile>_lattice_</notextile> object. Initialize this object by passing in your game object and the canvas element id.
 
 	```javascript
 	var game = new Game('canvas', 600, 600);
-	_lattice_.init(game, 'canvas'); // <- new line
+	_lattice_.init(game, 'canvas'); // <- newest line
 	```
 
 4. Now, create an initial level, create an initial state within that level, and set the current state. You can specify for yourself the names of the things you pass into the three functions below, but you do need to call these three functions.
@@ -50,7 +49,7 @@ Get started in just 5 easy steps.
 	// main.js
 	var game = new Game('canvas', 600, 600);
 	_lattice_.init(game, 'canvas');
-	game.init(); // <- new line
+	game.init(); // <- newest line
 	```
 
 5. Finally, start the loop on _lattice_.
@@ -61,7 +60,7 @@ Get started in just 5 easy steps.
 		var game = new Game('canvas', 600, 600);
 		_lattice_.init(game, 'canvas');
 		game.init();
-		_lattice_.startLoop(); // <- new line
+		_lattice_.startLoop(); // <- newest line
 	});
 	```
 
