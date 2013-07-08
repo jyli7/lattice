@@ -30,7 +30,7 @@ Get started in just 5 easy steps.
 
 	```javascript
 	var game = new Game('canvas', 600, 600);
-	_lattice_.init(game, 'canvas');
+	_lattice_.init(game, 'canvas'); // <- new line
 	```
 
 4. Now, create an initial level, create an initial state within that level, and set the current state. You can specify for yourself the names of the things you pass into the three functions below, but you do need to call these three functions.
@@ -48,7 +48,7 @@ Get started in just 5 easy steps.
 	// main.js
 	var game = new Game('canvas', 600, 600);
 	_lattice_.init(game, 'canvas');
-	game.init();
+	game.init(); // <- new line
 	```
 
 5. Finally, start the loop on _lattice_.
@@ -59,8 +59,16 @@ Get started in just 5 easy steps.
 		var game = new Game('canvas', 600, 600);
 		_lattice_.init(game, 'canvas');
 		game.init();
-		_lattice_.startLoop();
+		_lattice_.startLoop(); // <- new line
 	});
 	```
 
 ### Modules
+
+#### Handling User Input (input_manager.js)
+
+#### Level Management (level_manager.js)
+
+#### Handling State (state_manager.js)
+
+#### Collision Detection (zone_checker.js)
