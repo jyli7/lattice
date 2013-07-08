@@ -4,11 +4,13 @@ A lightweight framework for making JavaScript games. Handles user input, game st
 
 ## How to Use Lattice
 
+The easiest way to figure out how to use lattice is to read/skim this readme and then check out the code for the sample game (link to game).
+
 ### Getting started
 
 Get started in just 5 easy steps.
 
-1. Include lattice.js or lattice.min.js with the rest of your included javascript.
+1. Include lattice.js or lattice.min.js with the rest of the javascript you're including in your game.
 
 	```html
 	// CODE FOR THIS GOES HERE
@@ -68,6 +70,18 @@ Get started in just 5 easy steps.
 Lattice consists of a bunch of modules, each of which is dedicated to handling a specific aspect of your game for you.
 
 Each of these modules is automatically attached to the _lattice_ object.
+
+### Lattice itself (_lattice_)
+
+Lattice is responsible for starting the game loop (_lattice_.startLoop()) and for updating and drawing the entities in the game.
+
+```javascript
+// Always pass into update function the time elapsed since the last tick of the clock (_lattice_.loopTimeElapsed).
+_lattice_.update(_lattice_.loopTimeElapsed);
+
+// Always pass into the draw function the context of the canvas (_lattice_.ctx)
+	_lattice_.draw(_lattice_.ctx);
+```
 
 #### Handling User Input (_lattice_.inputManager)
 
@@ -147,4 +161,3 @@ var Hero = function () {
 	this.yTop = this.yBottom - this.height;	
 };
 ```
-
