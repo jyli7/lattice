@@ -4,7 +4,7 @@ A lightweight framework for making javascript games. Handles user input, game st
 
 ## How to Use Lattice
 
-The easiest way to figure out how to use lattice is to read/skim this readme and then check out the code for the sample game (link to game).
+The easiest way to figure out how to use lattice is to read/skim this readme and then check out the code for the [sample game](https://github.com/jyli7/lattice/tree/master/sample_game).
 
 ### Getting started
 

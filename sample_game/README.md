@@ -1,0 +1,1 @@
+Sample game to demonstrate the basic functionality of [Lattice](https://github.com/jyli7/lattice).
