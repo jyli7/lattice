@@ -35,7 +35,7 @@ _lattice_.init(game, 'canvas');
 
 4. Now, create an initial level, create an initial state within that level, and set the current state. You can specify for yourself the names of the things you pass into the three functions below, but you do need to call these three functions.
 
-``javascript
+```javascript
 // game.js
 Game.prototype = {
     init: function() {
