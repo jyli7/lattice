@@ -99,6 +99,7 @@ Here's how you use each of these
 	_lattice_.levelManager.addLevel(1, new FirstLevel(this));
 
 // Demonstration of removeLevel()
+	
 	// Note that if you remove level 2, level 3 will NOT automatically become level 2.
 	// Instead, level 2 will not have any corresponding level object.
 	_lattice_.levelManager.removeLevel(2);
