@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Game</title>
+  <style type="text/css">
+    #canvas {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  </style>
+
+  <script src="head.min.js"></script>
+  <script type="text/javascript">
+    head.js("../lattice.min.js",
+            "./hero.js",
+            "./enemy.js",
+            "./levels.js",
+            "./states.js",
+            "./game.js",
+            function() {
+              var game = new Game('canvas', 600, 600);
+              _lattice_.init(game, 'canvas');
+              game.init();
+              _lattice_.startLoop();
+            });
+  </script>
+</head>
+<body>
+  <div class="message-container">
+    <div id="primary-message" class="primary-message"></div>
+    <div id="secondary-message" class="secondary-message"></div>
+  </div>
+  <canvas id="canvas"></canvas>
+</body>
+</html>
