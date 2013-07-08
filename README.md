@@ -74,11 +74,11 @@ Each of these modules is automatically attached to the _lattice_ object.
 To determine if the 'enter' key is being held down, call _lattice_.InputManager.keyIsHeld() and pass in the keyCode for enter, i.e. 13.
 
 Example:
-	```javascript
-	if (_lattice_.inputManager.keyIsHeld(13)) {
-		// Do stuff
-	}
-	```
+```javascript
+if (_lattice_.inputManager.keyIsHeld(13)) {
+	// Do stuff
+}
+```
 #### Level Management (_lattice_.levelManager)
 
 Lattice assumes that your game has levels. But don't worry, if you don't want your game to have levels, that's fine - just create 1 level.
@@ -92,20 +92,20 @@ The level manager has 3 functions of interest:
 
 Here's how you use each of these
 
-	```javascript
-	// Demonstration of addLevel()
-		
-		// Pass as arguments (1) the level number that corresponds to the new level and an instantiation of (2) the level object (which you have created).
-		_lattice_.levelManager.addLevel(1, new FirstLevel(this));
+```javascript
+// Demonstration of addLevel()
+	
+	// Pass as arguments (1) the level number that corresponds to the new level and an instantiation of (2) the level object (which you have created).
+	_lattice_.levelManager.addLevel(1, new FirstLevel(this));
 
-	// Demonstration of removeLevel()
-		// Note that if you remove level 2, level 3 will NOT automatically become level 2.
-		// Instead, level 2 will not have any corresponding level object.
-		_lattice_.levelManager.removeLevel(2);
+// Demonstration of removeLevel()
+	// Note that if you remove level 2, level 3 will NOT automatically become level 2.
+	// Instead, level 2 will not have any corresponding level object.
+	_lattice_.levelManager.removeLevel(2);
 
-	// Demonstration of currentLevelObj()
-		var levelObject = _lattice_.levelManager.currentLevelObj();
-	```
+// Demonstration of currentLevelObj()
+	var levelObject = _lattice_.levelManager.currentLevelObj();
+```
 
 #### Handling State (_lattice_.stateManager)
 
