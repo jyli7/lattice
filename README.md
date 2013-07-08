@@ -85,12 +85,7 @@ Lattice assumes that your game has levels. But don't worry, if you don't want yo
 
 The level manager has 1 property of interest: currentLevelNum. This is set to 1 by default.
 
-The level manager has 3 functions of interest:
-* addLevel()
-* removeLevel()
-* currentLevelObj()
-
-Here's how you use each of these
+The level manager has 3 functions of interest. Here's how you use each of these. Levels numbers and level objects are stored on the global _lattice_ object.
 
 ```javascript
 // Demonstration of addLevel()
@@ -109,6 +104,29 @@ Here's how you use each of these
 ```
 
 #### Handling State (_lattice_.stateManager)
+
+Lattice also assumes you want different states in your game (e.g. the 'intro' state, the 'countdown' state, the playing' state, the 'game over' state, etc.). Again, if you don't want to have states in your game, you can just have 1 state. But you do need to instantiate 1 state (as mentioned above). States are represented by a state name (e.g. 'playing') and a corresponding state function (e.g. playingState).
+
+There is no default current_state, you'll need to initialize it (as mentioned above), e.g.
+
+```javascript
+_lattice_.stateManager.currentState = 'playing';
+```
+
+The state manager has 3 functions of interest. Here's how you use each of these. State names and functions are also stored on the global _lattice_ object.
+
+```javascript
+_lattice_.stateManager.addState('playing', playingState);
+_lattice_.stateManager.removeState('playing');
+
+// Where the playing state is defined elsewhere:
+	// states.js
+
+	var playingState = function () {
+		_lattice_.update(_lattice_.loopTimeElapsed);
+		_lattice_.draw(_lattice_.ctx);
+	}
+```
 
 #### Collision Detection (_lattice_.zoneChecker)
 
