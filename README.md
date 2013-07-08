@@ -84,7 +84,7 @@ _lattice_.update(_lattice_.loopTimeElapsed);
 
 #### Handling User Input (_lattice_.inputManager)
 
-To determine if the 'enter' key is being held down, call _lattice_.InputManager.keyIsHeld() and pass in the keyCode for enter, i.e. 13.
+To determine if the 'enter' key is being held down, call \_lattice\_.InputManager.keyIsHeld() and pass in the keyCode for enter, i.e. 13.
 
 Example:
 ```javascript
